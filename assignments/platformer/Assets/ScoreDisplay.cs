@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro; 
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     private static int currentScore = 0;
 
     void Start()
@@ -21,14 +21,12 @@ public class ScoreDisplay : MonoBehaviour
         }
     }
 
-    // Static methods to modify score from other scripts
     public static void AddPoints(int points)
     {
         currentScore += points;
         if (currentScore < 0)
             currentScore = 0;
             
-        // Find and update all score displays in the scene
         ScoreDisplay[] displays = FindObjectsOfType<ScoreDisplay>();
         foreach (ScoreDisplay display in displays)
         {

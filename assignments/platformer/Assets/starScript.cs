@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class starScript : MonoBehaviour
+public class StarScript : MonoBehaviour
 {
     [Header("Rotation Settings")]
     [SerializeField] private float rotationSpeed = 180f;
@@ -13,8 +13,22 @@ public class starScript : MonoBehaviour
     
     [Header("Collection Settings")]
     [SerializeField] private string collectorTag = "Player"; 
-    [SerializeField] private bool destroyOnCollect = true;  
-    [SerializeField] private ParticleSystem collectEffect;
+    [SerializeField] private bool destroyOnCollect = true;
+
+    public int starPoints = 100;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(collectorTag))
+        {
+            ScoreDisplay.AddPoints(starPoints);
+            
+            if (destroyOnCollect)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     
     private Vector3 startPosition;
     
@@ -35,3 +49,4 @@ public class starScript : MonoBehaviour
             transform.position.z
         );
     }
+}
