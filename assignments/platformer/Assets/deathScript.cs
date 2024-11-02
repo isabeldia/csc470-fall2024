@@ -19,10 +19,8 @@ public class deathScript : MonoBehaviour
     {
         if (other.CompareTag(deathTag))
         {
-            // Subtract points using the static method from ScoreDisplay
             ScoreDisplay.AddPoints(-deathPenalty);
             
-            // Respawn player
             RespawnPlayer();
         }
     }

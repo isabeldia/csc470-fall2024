@@ -11,10 +11,8 @@ public class StarCollector : MonoBehaviour
     {
         if (other.CompareTag(starTag))
         {
-            // Add points using the static method from ScoreDisplay
             ScoreDisplay.AddPoints(starPoints);
             
-            // Destroy the star
             Destroy(other.gameObject);
         }
     }
