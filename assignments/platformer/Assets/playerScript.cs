@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
+using TMPro; 
 
 public class PlayerScript : MonoBehaviour
 {
     [Header("Player Movement")]
     public Transform cameraTransform;
     public CharacterController cc;
-    float rotateSpeed = 90;
-    float moveSpeed = 50f;
+    // float rotateSpeed = 90;
+    float moveSpeed = 100f;
     float jumpVelocity = 50;
 
     [Header("Death and Respawn")]
@@ -16,13 +18,20 @@ public class PlayerScript : MonoBehaviour
     public int deathPenalty = 30;
     public string deathTag = "Death";
 
+    [Header("Star Collection")]
+    private int starsCollected = 0;
+    public int totalStars = 3;
+    public TextMeshProUGUI starCountText; 
+    public TextMeshProUGUI winText;
+    public string starTag = "Star";
+
     // Movement variables
     float yVelocity = 0;
-    float gravity = -9.8f;
+    float gravity = -11.1f;
     float dashAmount = 8;
     float dashVelocity = 0;
     float friction = -2.8f;
-    float fallingTime = 0;
+    float fallingTime = 5;
     float coyoteTime = 0.5f;
 
     GameObject movingPlatform;
@@ -34,11 +43,38 @@ public class PlayerScript : MonoBehaviour
         {
             cc = GetComponent<CharacterController>();
         }
+
+        if (starCountText != null)
+        {
+            UpdateStarCountUI();
+        }
+        
+        if (winText != null)
+        {
+            winText.gameObject.SetActive(false);
+        }
     }
 
     void Update()
     {
         HandleMovement();
+    }
+
+    void UpdateStarCountUI()
+    {
+        if (starCountText != null)
+        {
+            starCountText.text = $"Stars: {starsCollected}/{totalStars}";
+        }
+    }
+
+    void CheckWinCondition()
+    {
+        if (starsCollected >= totalStars && winText != null)
+        {
+            winText.gameObject.SetActive(true);
+            winText.text = "You Win!";
+        }
     }
 
     void HandleMovement()
@@ -122,6 +158,18 @@ public class PlayerScript : MonoBehaviour
         {
             HandleDeath();
         }
+        else if (other.CompareTag(starTag))
+        {
+            CollectStar(other.gameObject);
+        }
+    }
+
+    void CollectStar(GameObject star)
+    {
+        starsCollected++;
+        UpdateStarCountUI();
+        CheckWinCondition();
+        Destroy(star);
     }
 
     void OnTriggerExit(Collider other)
@@ -142,6 +190,20 @@ public class PlayerScript : MonoBehaviour
         
         yVelocity = 0;
         dashVelocity = 0;
+        
+        starsCollected = 0;
+        UpdateStarCountUI();
+        if (winText != null)
+        {
+            winText.gameObject.SetActive(false);
+        }
+        
+        // Reactivate all stars
+        GameObject[] stars = GameObject.FindGameObjectsWithTag(starTag);
+        foreach (GameObject star in stars)
+        {
+            star.SetActive(true);
+        }
         
         cc.enabled = true;
         

@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class movingPlatformScript : MonoBehaviour
 {
-    float moveSpeed = 50;
-    float freq = 1;
-    float amp = 2;
-    float offset;
+    [SerializeField] private float amplitude = 5f;
+    [SerializeField] private float frequency = 1f;
+    [SerializeField] private bool startAtRandom = false;
 
-    Vector3 startPosition;
+    private float startX;
+    private float time;
 
-    // Start is called before the first frame update
     void Start()
     {
-        startPosition = transform.position;
-
-        offset = Random.Range(0, Mathf.PI * 2);
+        startX = transform.position.x;
+        
+        if (startAtRandom)
+        {
+            time = Random.Range(0f, 2f * Mathf.PI);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 pos = startPosition + Vector3.up * Mathf.Sin((offset + Time.time) * freq) * amp;
-        transform.position = pos;
+        time += Time.deltaTime;
+        float newX = startX + amplitude * Mathf.Sin(frequency * time);
+        
+        Vector3 newPosition = transform.position;
+        newPosition.x = newX;
+        transform.position = newPosition;
+    }
+
+    public void SetAmplitude(float newAmplitude)
+    {
+        amplitude = newAmplitude;
+    }
+
+    public void SetFrequency(float newFrequency)
+    {
+        frequency = newFrequency;
     }
 }
