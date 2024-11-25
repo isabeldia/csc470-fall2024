@@ -906,6 +906,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_GameObject_get_layer();
 		Register_UnityEngine_GameObject_get_layer();
 
+		//System.String UnityEngine.GameObject::get_tag()
+		void Register_UnityEngine_GameObject_get_tag();
+		Register_UnityEngine_GameObject_get_tag();
+
 		//System.Void UnityEngine.GameObject::Internal_CreateGameObject(UnityEngine.GameObject,System.String)
 		void Register_UnityEngine_GameObject_Internal_CreateGameObject();
 		Register_UnityEngine_GameObject_Internal_CreateGameObject();
@@ -2355,6 +2359,18 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_ResourcesAPIInternal_FindShaderByName();
 
 	//End Registrations for type : UnityEngine.ResourcesAPIInternal
+
+	//Start Registrations for type : UnityEngine.Rigidbody
+
+		//System.Void UnityEngine.Rigidbody::set_isKinematic(System.Boolean)
+		void Register_UnityEngine_Rigidbody_set_isKinematic();
+		Register_UnityEngine_Rigidbody_set_isKinematic();
+
+		//System.Void UnityEngine.Rigidbody::set_useGravity(System.Boolean)
+		void Register_UnityEngine_Rigidbody_set_useGravity();
+		Register_UnityEngine_Rigidbody_set_useGravity();
+
+	//End Registrations for type : UnityEngine.Rigidbody
 
 	//Start Registrations for type : UnityEngine.Screen
 

@@ -190,6 +190,7 @@ UnityEngine.GameObject::CompareTag
 UnityEngine.GameObject::get_activeInHierarchy
 UnityEngine.GameObject::get_activeSelf
 UnityEngine.GameObject::get_layer
+UnityEngine.GameObject::get_tag
 UnityEngine.GameObject::Internal_CreateGameObject
 UnityEngine.GameObject::SendMessage
 UnityEngine.GameObject::SetActive
@@ -509,6 +510,8 @@ UnityEngine.RenderTexture::GetTemporary_Internal_Injected
 UnityEngine.Resources::GetBuiltinResource
 UnityEngine.ResourcesAPIInternal::Load
 UnityEngine.ResourcesAPIInternal::FindShaderByName
+UnityEngine.Rigidbody::set_isKinematic
+UnityEngine.Rigidbody::set_useGravity
 UnityEngine.Screen::get_fullScreen
 UnityEngine.Screen::get_height
 UnityEngine.Screen::get_width

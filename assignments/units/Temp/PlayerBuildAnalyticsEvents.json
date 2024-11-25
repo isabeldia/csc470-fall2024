@@ -3,7 +3,7 @@
     {
       "type": "il2cppData",
       "msg": {
-        "build_event_id": "143914eeb465540639c90d9d474b589b",
+        "build_event_id": "834917122db534a349bcdc9b6635293e",
         "node_executed": true,
         "attribute_total_count_eager_static_constructor": 9,
         "attribute_total_count_set_option": 0,
@@ -42,41 +42,25 @@
     {
       "type": "playerBuildTimingData",
       "msg": {
-        "build_event_id": "143914eeb465540639c90d9d474b589b",
-        "build_player": 413489,
-        "preprocess_player": 131,
-        "produce_player_script_assemblies": 16737,
-        "build_scripts_dlls": 76,
-        "writing_asset_files": 1394,
-        "postprocess_built_player": 370649,
+        "build_event_id": "834917122db534a349bcdc9b6635293e",
+        "build_player": 112782,
+        "preprocess_player": 50,
+        "produce_player_script_assemblies": 3577,
+        "build_scripts_dlls": 25,
+        "writing_asset_files": 185,
+        "postprocess_built_player": 106130,
         "node_summary_table": [
           {
             "name": "Csc",
-            "duration": 1599
-          },
-          {
-            "name": "Csc",
-            "duration": 387
-          },
-          {
-            "name": "Csc",
-            "duration": 827
-          },
-          {
-            "name": "Csc",
-            "duration": 1599
-          },
-          {
-            "name": "Csc",
-            "duration": 1599
+            "duration": 438
           },
           {
             "name": "UnityLinker.exe",
-            "duration": 17819
+            "duration": 5784
           },
           {
             "name": "il2cpp.exe",
-            "duration": 12630
+            "duration": 7438
           }
         ]
       },
@@ -85,7 +69,7 @@
     {
       "type": "unityLinkerData",
       "msg": {
-        "build_event_id": "143914eeb465540639c90d9d474b589b",
+        "build_event_id": "834917122db534a349bcdc9b6635293e",
         "node_executed": true,
         "attribute_marked_count_always_link_assembly": 0,
         "attribute_swept_count_always_link_assembly": 0,

@@ -299,12 +299,23 @@ public class PlayerController : MonoBehaviour
     private bool isSelected = false;
     private bool isInvulnerable = false;
 
-    void OnTriggerEnter(Collider other)
+        void Awake()
     {
-        if (!isInvulnerable && other.CompareTag("enemies"))
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb == null)
         {
-            GameManager.Instance.GameOver();
+            rb = gameObject.AddComponent<Rigidbody>();
         }
+
+        rb.isKinematic = true;
+        rb.useGravity = false;
+        
+        BoxCollider collider = GetComponent<BoxCollider>(); // ***
+        if (collider == null)
+        {
+            collider = gameObject.AddComponent<BoxCollider>();
+        }
+        collider.isTrigger = true;
     }
 
     public void Initialize(TilePuzzleManager manager, LayerMask interactableLayers)
@@ -319,6 +330,26 @@ public class PlayerController : MonoBehaviour
             navAgent = gameObject.AddComponent<UnityEngine.AI.NavMeshAgent>();
         }
         navAgent.enabled = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Triggered: {other.gameObject.name}, Tag: {other.tag}");
+        if (other.CompareTag("enemies"))
+        {
+            Debug.Log("Player triggered collision with enemy! Game over!!");
+            GameManager.Instance.GameOver();
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"Collision: {collision.gameObject.name}, Tag: {collision.gameObject.tag}");
+        if (collision.gameObject.CompareTag("enemies"))
+        {
+            Debug.Log("Player collided with enemy! Game over !!");
+            GameManager.Instance.GameOver();
+        }
     }
 
     private void HandleMovement()

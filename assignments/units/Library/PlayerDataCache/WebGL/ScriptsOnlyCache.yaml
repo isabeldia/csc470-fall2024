@@ -4,8 +4,6 @@ ScriptsOnlyBuild:
     - Enemy
     - GameManager
     - TilePuzzleManager
-    Unity.AI.Navigation.Editor.dll:
-    - Unity.AI.Navigation.Editor.NavigationWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -83,6 +81,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
@@ -96,33 +96,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1536}
+      Script: {instanceID: 1600}
     - Class: 114
-      Script: {instanceID: 1584}
+      Script: {instanceID: 2194}
     - Class: 114
-      Script: {instanceID: 2164}
+      Script: {instanceID: 2614}
     - Class: 114
-      Script: {instanceID: 2582}
+      Script: {instanceID: 2818}
     - Class: 114
-      Script: {instanceID: 2784}
+      Script: {instanceID: 3108}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 4090}
     - Class: 114
-      Script: {instanceID: 4040}
+      Script: {instanceID: 4342}
     - Class: 114
-      Script: {instanceID: 4290}
+      Script: {instanceID: 4864}
     - Class: 114
-      Script: {instanceID: 4980}
+      Script: {instanceID: 5042}
     - Class: 114
-      Script: {instanceID: 5526}
+      Script: {instanceID: 5278}
     - Class: 114
-      Script: {instanceID: 5676}
+      Script: {instanceID: 5616}
     - Class: 114
-      Script: {instanceID: 5990}
+      Script: {instanceID: 5766}
     - Class: 114
-      Script: {instanceID: 29754}
+      Script: {instanceID: 6086}
     - Class: 114
-      Script: {instanceID: 30314}
+      Script: {instanceID: 6104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -146,12 +146,6 @@ ScriptsOnlyBuild:
     - Class: 238
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: ec7c440ffdd36c10a897990380e38ea6
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: TilePuzzleManager
   - hash:
       serializedVersion: 2
       Hash: 55060a7bf226ac385ce19ebd450f199f
@@ -586,6 +580,12 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 8a2f78c25d5e92eb97ee5544a162a2e9
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshLink
+  - hash:
+      serializedVersion: 2
       Hash: f2098fcd8ee983a05ec192f63904298f
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -614,6 +614,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: ec7c440ffdd36c10a897990380e38ea6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TilePuzzleManager
   - hash:
       serializedVersion: 2
       Hash: ec6cf673540b2d4e42c612611eeafe4d
@@ -664,6 +670,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 061a5d77ce0aa52a60c21c566c6d8af2
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshModifierVolume
+  - hash:
+      serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -676,10 +688,22 @@ ScriptsOnlyBuild:
     className: PanelEventHandler
   - hash:
       serializedVersion: 2
+      Hash: d55992199bd2f5a5502658391cdf8ba7
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshSurface
+  - hash:
+      serializedVersion: 2
       Hash: 9dd54ce33440072d6692a67e0c384ad1
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 5c19057616663ae151719d1421c98659
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: bf0842d88681628b29beb00b5e2ab785
@@ -754,10 +778,22 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
+      Hash: 0f331073d6b735d41b81723ba073f9d0
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Enemy
+  - hash:
+      serializedVersion: 2
       Hash: febcfbf0a0d85e37808a3740e3c2c6fa
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 68f2cb287af2eee1f639824485a3402b
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
+    className: NavMeshModifier
   - hash:
       serializedVersion: 2
       Hash: 672716ae97f6ddb615fa5ac3ec9da349
@@ -974,42 +1010,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 5c19057616663ae151719d1421c98659
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: 061a5d77ce0aa52a60c21c566c6d8af2
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshModifierVolume
-  - hash:
-      serializedVersion: 2
-      Hash: d55992199bd2f5a5502658391cdf8ba7
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshSurface
-  - hash:
-      serializedVersion: 2
-      Hash: 68f2cb287af2eee1f639824485a3402b
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshModifier
-  - hash:
-      serializedVersion: 2
-      Hash: 8a2f78c25d5e92eb97ee5544a162a2e9
-    assemblyName: Unity.AI.Navigation
-    namespaceName: Unity.AI.Navigation
-    className: NavMeshLink
-  - hash:
-      serializedVersion: 2
-      Hash: 0f331073d6b735d41b81723ba073f9d0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Enemy
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

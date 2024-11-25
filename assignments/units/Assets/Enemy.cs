@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour
         InitializeAgent();
     }
 
-    // does not work rn... but hopefully can fix!!!
     private BoxCollider enemyCollider;
     
     private void InitializeAgent()
@@ -46,13 +45,21 @@ public class Enemy : MonoBehaviour
                 agent = gameObject.AddComponent<NavMeshAgent>();
             }
             
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb == null)
+            {
+                rb = gameObject.AddComponent<Rigidbody>();
+            }
+            rb.isKinematic = true;
+            rb.useGravity = false;
+            
             enemyCollider = GetComponent<BoxCollider>();
             if (enemyCollider == null)
             {
                 enemyCollider = gameObject.AddComponent<BoxCollider>();
             }
             enemyCollider.isTrigger = true;
-            enemyCollider.size = new Vector3(1f, 1f, 1f); // Adjust size as needed
+            enemyCollider.size = new Vector3(1f, 1f, 1f);
             
             gameObject.tag = "enemies";
             gameObject.layer = LayerMask.NameToLayer("Default");
@@ -66,9 +73,20 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"Triggered: {other.gameObject.name}, Tag: {other.tag}");
         if (other.CompareTag("unit"))
         {
-            Debug.Log("Enemy collided with player!"); // does not show up 11/22
+            Debug.Log("Enemy triggered  collision with player! Game over!!");
+            GameManager.Instance.GameOver();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"Collision: {collision.gameObject.name}, Tag: {collision.gameObject.tag}"); 
+        if (collision.gameObject.CompareTag("unit"))
+        {
+            Debug.Log("Enemy collided with player! Game over!! ");
             GameManager.Instance.GameOver();
         }
     }
